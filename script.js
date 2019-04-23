@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           resetOverlayLeft();
         },300);
       }
+      console.log("On action left");
     };
     
     //Functions to swipe right elements on logic external action.
@@ -195,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           resetOverlayRight();
         },300);
       }
+      console.log("On action right");
     };
     
     //Functions to swipe top elements on logic external action.
@@ -230,6 +232,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeBackground();
       changeStages();
       setActiveHidden();
+
+      console.log("On swipe left");
     };
     
     //Swipe active card to right.
@@ -248,6 +252,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeBackground();
       changeStages();
       setActiveHidden();
+
+      console.log("On swipe right");
     };
     
     //Swipe active card to top.
