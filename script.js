@@ -233,15 +233,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       console.log("user id : " + userid + " dislike 0 " + "dish id :" + testResults[i][0]);
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.send(JSON.stringify({
-          rating:{
-            dishid: testResults[i][0],
-            score: 0
-          }
-      }));
+      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
 
     };
     
@@ -263,15 +255,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       setActiveHidden();
 
       console.log("user id : " + userid + " like 1 " + "dish id :" + testResults[i][0]);
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.send(JSON.stringify({
-          rating:{
-            dishid: testResults[i][0],
-            score: 1
-          }
-      }));
+
+      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
 
 
     };
@@ -294,16 +279,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("user id : " + userid + " like 2 " + "dish id :" + testResults[i][0]);
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.send(JSON.stringify({
-          rating:{
-            dishid: testResults[i][0],
-            score: 2
-          }
-      }));
+      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
+
 
     };
     
