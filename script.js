@@ -178,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           resetOverlayLeft();
         },300);
       }
-      console.log("On action left");
     };
     
     //Functions to swipe right elements on logic external action.
@@ -196,7 +195,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           resetOverlayRight();
         },300);
       }
-      console.log("On action right");
     };
     
     //Functions to swipe top elements on logic external action.
@@ -233,7 +231,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("On swipe left");
+      console.log("user id : " + userid + " dislike 0 " + "dish id :" + testResults[i][0]);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+          rating:{
+            dishid: testResults[i][0],
+            score: 0
+          }
+      }));
+
     };
     
     //Swipe active card to right.
@@ -253,7 +262,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("On swipe right");
+      console.log("user id : " + userid + " like 1 " + "dish id :" + testResults[i][0]);
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+          rating:{
+            dishid: testResults[i][0],
+            score: 1
+          }
+      }));
+
+
     };
     
     //Swipe active card to top.
@@ -273,6 +293,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeBackground();
       changeStages();
       setActiveHidden();
+
+      console.log("user id : " + userid + " like 2 " + "dish id :" + testResults[i][0]);
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://52.91.92.64:8088/ratings/"+userid, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+          rating:{
+            dishid: testResults[i][0],
+            score: 2
+          }
+      }));
+
     };
     
     //Remove transitions from all elements to be moved in each swipe movement to improve perfomance of stacked cards.
@@ -711,5 +743,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   
   stackedCards();
-  
+    
 });
