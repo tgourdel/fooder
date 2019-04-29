@@ -21,14 +21,14 @@
       <div class="stackedcards--animatable stackedcards-overlay left"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="auto" height="auto"/></div>
     </div>
     <div class="global-actions">
-      <div class="left-action"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="50" /></div>
-      <div class="top-action"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png" width="36"/></div>
-      <div class="right-action"><img src="https://image.ibb.co/dCuESn/Path_3x.png" width="60"/></div>
+      <div class="left-action"><img src="images/redcross.png" width="50" /></div>
+      <div class="top-action"><img src="images/star.png" width="36"/></div>
+      <div class="right-action"><img src="images/greenheart.png" width="60"/></div>
   </div>
 </div>
 
 <div class="final-state hidden">
-  <h2>Got it! We received your preferences! <br/> To submit again, press F5.</h2>
+  <h2 style="font-size:16px; color:#fff;">Got it! We received your preferences! <br/> To submit again, press F5.</h2>
 </div>
 
 <div id="gets" style="display:none">
@@ -50,7 +50,7 @@ var testResults = [
   ['7','images/snails.png', 'Snails'],
   ['8','images/crepes.png', 'Crêpes'],
   ['9','images/quinoasalad.png', 'Quinoa Salad'],
-  ['10','images/jelly.png', 'Jelly'],
+  ['10','images/garlicmushrooms.png', 'Garlic Mushrooms'],
   ['11','images/homard.png', 'Homard'],
   ['12','images/shrimps.png', 'Shrimps'],
   ['13','images/friedmussels.png', 'Fried Mussels'],
@@ -91,13 +91,23 @@ var testResults = [
   ['48','images/grilledsardines.png', 'Grilled Sardines'],
   ['49','images/gazpacho.png', 'Gazpacho'],
   ['50','images/beeftartare.png', 'Beef Tartare'],
+  ['51','images/pokebowl.png', 'Poke Bowl'],
+  ['52','images/anchovies.png', 'Anchovies'],
+  ['53','images/cornsticks.png', 'Corn Sticks'],
+  ['54','images/asparagus.png', 'Asparagus'],
+  ['55','images/donerkebab.png', 'Doner Kebab'],
+  ['56','images/beefburrito.png', 'Beef Burrito'],
+  ['57','images/stickyorangechicken.png', 'Sticky Orange Chicken'],
+  ['58','images/dumplings.png', 'Dumplings'],
+  ['59','images/soursoup.png', 'Sour Soup'],
+  ['60','images/cod.png', 'Cod'],
 ];
 
 testResults = shuffle(testResults);
 
 var textTable = document.getElementById("text_table");
 var nHTML = '';
-for (var i = 0; i < testResults.length-1; i++) {
+for (var i = 0; i < testResults.length; i++) {
 
   console.log(testResults[i][0]);
    nHTML += "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[i][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[i][2]+"</h1></div></div></div>"
