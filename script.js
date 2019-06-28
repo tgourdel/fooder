@@ -1,4 +1,7 @@
 // JavaScript Document
+
+var service_hosts = "52.55.141.119";
+
 document.addEventListener("DOMContentLoaded", function(event) {
 
   function stackedCards () {
@@ -154,9 +157,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
           //Event listener created to know when transition ends and changes states
           listElNodesObj[maxElements - 1].addEventListener('transitionend', function(){
             document.body.classList.add("background-7");
-            document.querySelector('.stage').classList.add('hidden'); 
-            document.querySelector('.final-state').classList.remove('hidden');
-            document.querySelector('.final-state').classList.add('active');
+
+            document.getElementById("stage").style.display = "none";
+
+            document.getElementById("stage").style.display = "none";
+
+            document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
+
+            // document.querySelector('.stage').classList.add('hidden'); 
+            // document.querySelector('.final-state').classList.remove('hidden');
+            // document.querySelector('.final-state').classList.add('active');
             listElNodesObj[maxElements - 1].removeEventListener('transitionend', null, false); 
         });
       }
@@ -233,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       console.log("user id : " + userid + " dislike 0 " + "dish id :" + testResults[i][0]);
 
-      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
 
     };
     
@@ -256,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       console.log("user id : " + userid + " like 1 " + "dish id :" + testResults[i][0]);
 
-      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
 
 
     };
@@ -279,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      document.getElementById("gets").innerHTML = "<img src='http://52.91.92.64:8088/ratings/"+userid+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
 
 
     };
