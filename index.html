@@ -30,6 +30,9 @@
 <div class="final-state hidden">
   <h2 style="font-size:30px; color: #000; background-color: none;">Got it! We received your preferences!</h2>
   <br><br>
+  <div id="finalresp">
+    
+  </div>
   <img src="images/loader.svg" >
 </div>
 
@@ -134,6 +137,13 @@ function shuffle(a) {
         a[j] = x;
     }
     return a;
+}
+
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
 
 </script>
