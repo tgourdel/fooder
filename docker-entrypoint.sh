@@ -1,0 +1,1 @@
+sed -i s/"SERVER_HOST"/${SERVER_HOST}/g script.js

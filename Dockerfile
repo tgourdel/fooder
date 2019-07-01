@@ -7,4 +7,6 @@ COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
 WORKDIR /usr/local/apache2/htdocs/
 
-RUN sed -i s/"SERVER_HOST"/${SERVER_HOST}/g script.js
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
