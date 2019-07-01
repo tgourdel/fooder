@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var service_hosts = "SERVER_HOST";
+var service_hosts = "52.55.141.119";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -163,21 +163,33 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("stage").style.display = "none";
 
             // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
+            parser = new DOMParser();
+            window.setInterval(function(){
+              
+              var resp = httpGet("http://"+service_hosts+"/recommandation/"+userid)
+              console.log("Status code: " + resp.status);
 
-            console.log(httpGet("http://"+service_hosts+":8089/recommandation/9"))
+              if(resp.status = 200) {
+                xmlDoc = parser.parseFromString(resp.responseText,"text/xml");
+                var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
+                console.log(dishid_recommanded);
+                clearInterval();
+              }
+              else {
+                console.log("continue");
+              }
 
-            var finalResp = document.getElementById("finalresp");
 
-            textTable.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[finaldishid][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[finaldishid][2]+"</h1></div></div></div>";
+            }, 10000);
+
+
+            // textTable.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[finaldishid][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[finaldishid][2]+"</h1></div></div></div>";
 
             // document.querySelector('.stage').classList.add('hidden'); 
             // document.querySelector('.final-state').classList.remove('hidden');
             // document.querySelector('.final-state').classList.add('active');
             listElNodesObj[maxElements - 1].removeEventListener('transitionend', null, false);
 
-            window.setInterval(function(){
-                var finaldishid = httpGet("http://"+service_hosts+":8089/recommandation/9");
-            }, 5000);
 
         });
       }
@@ -252,9 +264,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("user id : " + userid + " dislike 0 " + "dish id :" + testResults[i][0]);
-
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
+      console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0");
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
 
     };
     
@@ -275,9 +286,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("user id : " + userid + " like 1 " + "dish id :" + testResults[i][0]);
+      console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1");
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
 
 
     };
@@ -300,7 +311,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
+      console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2");
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
 
 
     };

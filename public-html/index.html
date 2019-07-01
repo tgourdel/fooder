@@ -119,7 +119,7 @@ testResults = shuffle(testResults);
 var textTable = document.getElementById("text_table");
 var nHTML = '';
 //for (var i = 0; i < testResults.length; i++) {
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 3; i++) {
 
   console.log(testResults[i][0]);
    nHTML += "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[i][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[i][2]+"</h1></div></div></div>"
@@ -147,9 +147,9 @@ function shuffle(a) {
 
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.open( "GET", theUrl, true ); // false for synchronous request
     xmlHttp.send( null );
-    return xmlHttp.responseText;
+    return xmlHttp;
 }
 
 </script>
