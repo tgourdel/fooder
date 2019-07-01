@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var service_hosts = "localhost";
+var service_hosts = "SERVER_HOST";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
