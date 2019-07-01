@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var service_hosts = "52.55.141.119";
+var service_hosts = "localhost";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -162,11 +162,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             document.getElementById("stage").style.display = "none";
 
-            // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/recommandation/"+userid+"' width='1' height='1'/>"
+            // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
 
-            console.log(httpGet("http://"+service_hosts+"/recommandation/9"))
-            var finaldishid = httpGet("http://"+service_hosts+"/recommandation/9");
-            console.log(finaldishid.root.dishid);
+            console.log(httpGet("http://"+service_hosts+":8089/recommandation/9"))
+
             var finalResp = document.getElementById("finalresp");
 
             textTable.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[finaldishid][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[finaldishid][2]+"</h1></div></div></div>";
@@ -174,7 +173,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // document.querySelector('.stage').classList.add('hidden'); 
             // document.querySelector('.final-state').classList.remove('hidden');
             // document.querySelector('.final-state').classList.add('active');
-            listElNodesObj[maxElements - 1].removeEventListener('transitionend', null, false); 
+            listElNodesObj[maxElements - 1].removeEventListener('transitionend', null, false);
+
+            window.setInterval(function(){
+                var finaldishid = httpGet("http://"+service_hosts+":8089/recommandation/9");
+            }, 5000);
+
         });
       }
     };
@@ -250,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       console.log("user id : " + userid + " dislike 0 " + "dish id :" + testResults[i][0]);
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
 
     };
     
@@ -273,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       console.log("user id : " + userid + " like 1 " + "dish id :" + testResults[i][0]);
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
 
 
     };
@@ -296,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8088/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
 
 
     };
