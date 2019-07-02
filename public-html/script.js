@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     console.log(response);
                     xmlDoc = parser.parseFromString(response,"text/xml");
                 
-                    var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
+                    var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0].childNodes[0].nodeValue;
                     console.log(dishid_recommanded);
 
                     reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[dishid_recommanded][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[dishid_recommanded][2]+"</h1></div></div></div>"
