@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("final-state").style.display = "block";
 
             var reco = document.getElementById("finalresp");
-            reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='images/loader.svg' width='100%' height='100%'/></div><div class='card-titles'></div></div></div>";
+            reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='images/loader.gif' width='100px' height='100px'/></div><div class='card-titles'></div></div></div>";
 
             // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
             parser = new DOMParser();
