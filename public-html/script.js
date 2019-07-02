@@ -265,7 +265,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       setActiveHidden();
 
       console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0");
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
+
+      var screenname = document.getElementById('screenname').value;
+      if(screenname == "") {
+        screenname = "unknown";
+      }
+
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+screenname+"/"+testResults[i][0]+"/0' width='1' height='1'/>"
 
     };
     
@@ -286,9 +292,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
       changeStages();
       setActiveHidden();
 
-      console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1");
+      console.log("http://"+service_hosts+"/rating/"+userid+"/"+screenname+"/"+testResults[i][0]+"/1");
 
-      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
+      var screenname = document.getElementById('screenname').value;
+      if(screenname == "") {
+        screenname = "unknown";
+      }
+
+      document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+screenname+"/"+testResults[i][0]+"/1' width='1' height='1'/>"
 
 
     };
@@ -312,6 +323,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       setActiveHidden();
 
       console.log("http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2");
+
+      var screenname = document.getElementById('screenname').value;
+      if(screenname == "") {
+        screenname = "unknown";
+      }
+
       document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+"/rating/"+userid+"/"+document.getElementById('screenname').value+"/"+testResults[i][0]+"/2' width='1' height='1'/>"
 
 
