@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var service_hosts = "52.55.141.119";
+var service_hosts = "52.55.141.119:";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -162,29 +162,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             document.getElementById("stage").style.display = "none";
 
+            document.getElementById("final-state").style.display = "block";
+
+            var reco = document.getElementById("finalresp");
+            reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='images/loader.svg' width='100%' height='100%'/></div><div class='card-titles'></div></div></div>";
+
             // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
             parser = new DOMParser();
             window.setInterval(function(){
               
               var resp = httpGet("http://"+service_hosts+"/recommandation/"+userid)
-              console.log("Status code: " + resp.status);
-              console.log("Status code: " + resp.responseText);
+              console.log("Resp " + resp);
 
-              if(resp.status = 0) {
                 xmlDoc = parser.parseFromString(resp.responseText,"text/xml");
                 var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
                 console.log(dishid_recommanded);
-                clearInterval();
-              }
-              else {
-                console.log("continue");
-              }
 
+                reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[dishid_recommanded][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[dishid_recommanded][2]+"</h1></div></div></div>"
+
+                console.log("waiting");
 
             }, 10000);
 
 
-            // textTable.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[finaldishid][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[finaldishid][2]+"</h1></div></div></div>";
 
             // document.querySelector('.stage').classList.add('hidden'); 
             // document.querySelector('.final-state').classList.remove('hidden');
