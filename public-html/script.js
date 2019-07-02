@@ -168,8 +168,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
               
               var resp = httpGet("http://"+service_hosts+"/recommandation/"+userid)
               console.log("Status code: " + resp.status);
+              console.log("Status code: " + resp.responseText);
 
-              if(resp.status = 200) {
+              if(resp.status = 0) {
                 xmlDoc = parser.parseFromString(resp.responseText,"text/xml");
                 var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
                 console.log(dishid_recommanded);
