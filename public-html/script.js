@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var service_hosts = "52.55.141.119:";
+var service_hosts = "52.55.141.119";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
