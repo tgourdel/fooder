@@ -171,13 +171,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
             window.setInterval(function(){
               
               var client = new HttpClient();
-              client.get('http://some/thing?with=arguments', function(response) {
+              client.get('http://'+service_hosts+'/recommandation/'+userid, function(response) {
                     parser = new DOMParser();
-                    console.log(response);
+                      console.log(response);
                     xmlDoc = parser.parseFromString(resp.responseText,"text/xml");
-                    
+                
                     var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
-                    console.
+                    console.log(dishid_recommanded);
+
+                    reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[dishid_recommanded][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[dishid_recommanded][2]+"</h1></div></div></div>"
+
+              });
+              
 
 
                 console.log("waiting");
