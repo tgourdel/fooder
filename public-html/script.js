@@ -170,24 +170,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // document.getElementById("gets").innerHTML = "<img src='http://"+service_hosts+":8089/recommandation/"+userid+"' width='1' height='1'/>"
             window.setInterval(function(){
               
-              var client = new HttpClient();
-              client.get('http://'+service_hosts+'/recommandation/'+userid, function(response) {
+              var response = httpGet('http://'+service_hosts+'/recommandation/'+userid);
+
                     parser = new DOMParser();
-                      console.log(response);
-                    xmlDoc = parser.parseFromString(resp.responseText,"text/xml");
+                    console.log(response);
+                    xmlDoc = parser.parseFromString(response,"text/xml");
                 
                     var dishid_recommanded = xmlDoc.getElementsByTagName("dishid")[0];
                     console.log(dishid_recommanded);
 
                     reco.innerHTML = "<div class='card'><div class='card-content'><div class='card-image'><img src='"+testResults[dishid_recommanded][1]+"' width='100%' height='100%'/></div><div class='card-titles'><h1>"+testResults[dishid_recommanded][2]+"</h1></div></div></div>"
 
-              });
-              
-
-
                 console.log("waiting");
 
-            }, 10000);
+            }, 6000);
 
 
 
